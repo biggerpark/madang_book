@@ -5,15 +5,40 @@
 <mapper namespace="com.green.madang.manager.book.BookMapper">
     <insert id="insBook">
         INSERT INTO book
-        SET  bookname=#{bookName}
-            ,publisher=#{publisher}
-            ,price=#{price}
+        SET bookname=#{bookName}
+        ,publisher=#{publisher}
+        ,price=#{price}
     </insert>
 
     <select id="selBookList">
         SELECT bookid as bookId,bookname as bookName,publisher,price
         FROM book
+        <if test="searchText !=null and searchText != ''">
+            WHERE bookname like '%${searchText}%'
+        </if>
         ORDER BY bookname,bookid
         LIMIT #{startIdx},#{size};
     </select>
+
+    <update id="upDynBook">
+        UPDATE book
+        <set>
+            <if test="bookName!=null and bookName!=''">
+                bookname=#{bookName}
+            </if>
+            <if test="publisher!=null and publisher!=''">
+                ,publisher=#{publisher}
+            </if>
+            <if test=" price >=0 and price !=null ">
+                ,price=#{price}
+            </if>
+        </set>
+        WHERE bookid=#{bookId}
+    </update>
+
+    <delete id="delBook">
+        DELETE
+        FROM book
+        WHERE bookid=#{bookId}
+    </delete>
 </mapper>

@@ -7,7 +7,6 @@ import lombok.Setter;
 @Getter
 @Setter
 public class BookGetRes {
-    @Schema(title="")
     private int bookId;
     private String bookName;
     private String publisher;

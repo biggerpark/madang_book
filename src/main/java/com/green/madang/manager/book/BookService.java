@@ -1,9 +1,7 @@
 package com.green.madang.manager.book;
 
 
-import com.green.madang.manager.book.model.BookGetReq;
-import com.green.madang.manager.book.model.BookGetRes;
-import com.green.madang.manager.book.model.BookPostReq;
+import com.green.madang.manager.book.model.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +26,14 @@ public class BookService {
 
 
         return mapper.selBookList(p);
+    }
+
+    public int upDynBook(BookUpdateReq p){
+        return mapper.upDynBook(p);
+    }
+
+    public int delBook(BookDeleteReq p){
+        return mapper.delBook(p);
     }
 
 

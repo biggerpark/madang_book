@@ -20,6 +20,7 @@ springdoc:
   api-docs:
     version: openapi_3_1
   swagger-ui:
-    default-model-expand-depth:10
-    default-models-expand-depth:10
+    default-model-expand-depth: 10
+    default-models-expand-depth: -1
+    path: /swagger
 

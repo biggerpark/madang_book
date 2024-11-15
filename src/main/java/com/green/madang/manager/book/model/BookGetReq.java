@@ -11,6 +11,8 @@ import lombok.Setter;
 public class BookGetReq {
     private int page; // 실제 받는 값
     private int size; // 실제 받는 값
-    @JsonIgnore
+    private String searchText; //
+    @JsonIgnore //swagger 문서에서 멤버필드가 안나오게 하고 싶으면 이 애노테이션을 붙이면 된다.
     private int startIdx; // 계산되는 값( (page-1)*size  )
+
 }
