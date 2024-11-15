@@ -1,0 +1,25 @@
+# spring.application.name=madang properties 에서의 코드
+#yml = yaml 확장자는 두개 아무거나 쓰면된다. 이 확장자를 쓰면 이전에 board 에서 쓰던것처럼 길게 쓸 필요가 없고, 줄여 쓸 수 있다.
+
+spring:
+  application:
+    name: madang
+  # yml(yaml)에서는 무조건 : 이후 띄어쓰기 필수
+  # : properties 에서 . 과 같은 역할
+  datasource:
+    url: jdbc:mariadb://localhost/madang_spring
+    username: root
+    password: green502
+
+#주소 값이 중복된 코드를 줄여줌
+
+mybatis:
+  mapper-locations: mappers/**/*.xml
+
+springdoc:
+  api-docs:
+    version: openapi_3_1
+  swagger-ui:
+    default-model-expand-depth:10
+    default-models-expand-depth:10
+
